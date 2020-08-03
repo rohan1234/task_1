@@ -1,0 +1,7 @@
+sudo cp vrf * /root/developer
+if sudo docker ps | grep master_web1
+then
+echo "already running"
+else
+sudo docker run -dit --name master_web1 -p 8083:80 -v /root/developer:/usr/local/apache2/htdocs/ httpd
+fi
