@@ -1,0 +1,7 @@
+sudo cp vrf * /root/production
+if sudo docker ps | grep dev_web1
+then
+echo "already running"
+else
+sudo docker run -dit --name dev_web1 -p 8082:80 -v /root/production:/usr/local/apache2/htdocs/ httpd
+fi
